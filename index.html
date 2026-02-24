@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <!-- tailwind and daisy ui  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="max-w-[1110px]  mx-auto m-[30px]">
+
+    <!-- header -->
+    <header>
+        <h1 class=" text-[28px] font-bold">Job Application Tracker</h1>
+        <div class="cards grid grid-cols-3 gap-2 m-[30px]">
+            <div class="max-w-[360px]  bg-slate-50 shadow p-[20px] cursor-pointer">
+                <h2>Total</h2>
+                <h2 id="totalNumber" class="font-bold text-blue-400  text-[20px]">0</h2>
+            </div>
+            <div class="max-w-[360px]  bg-slate-50 shadow p-[20px] cursor-pointer">
+                <h2>Interview</h2>
+                <h2 id="interviewTotal" class="font-bold text-green-300 text-[20px]">0</h2>
+            </div>
+            <div class="max-w-[360px]  bg-slate-50 shadow p-[20px] cursor-pointer ">
+                <h2>Rejected</h2>
+                <h2 id="rejTotal" class="font-bold text-rose-500 text-[20px]">0</h2>
+            </div>
+        </div>
+    </header>
+    <hr>
+
+<div  class="flex justify-between m-[20px]">
+    <p  class="text-[20px] font-bold">Available Jobs</p>
+    <div id="hideTotal" class="text-[15px]"><span id="totalNumber2" >0</span> Jobs </div>
+    <div id="hideInt" class="hidden text-[15px]"><span id="interviewTotal1" >0</span> of 8 Jobs </div>
+    <div id="hideReject" class="hidden text-[15px]"><span id="rejTotal1" >0</span> of 8 Jobs </div>
+</div>
+
+
+     <main>
+        <section class=" mt-3 space-x-3">
+            <button onclick="toggleStyle('allmainBtn')" id="allmainBtn" class="bg-blue-500 text-white rounded-md px-6 ">ALL</button>
+            <button onclick="toggleStyle('intmainBtn')" id="intmainBtn" class="bg-slate-200 text-blue-500 px-6 rounded-md">Interview</button>
+            <button onclick="toggleStyle('rejmainBtn')" id="rejmainBtn" class="bg-slate-200 text-blue-500 px-6 rounded-md">Rejected</button>
+        </section>
+
+<section id="filteredCard" class="hidden">
+<div id="noCardInt" class="hidden ">
+    <div class="bg-slate-100 shadow min-h-[400px] flex flex-col justify-center items-center text-center">
+ <img src="jobs.png" alt="">
+     <h1 class="text-[25px] font-bold">No jobs available</h1>
+    <p>Check back soon for new job opportunities</p>
+    </div>
+   
+</div>
+</section>
+<section id="filteredCardRej" class="hidden">
+<div id="noCardRej" class="hidden">
+    <div class="bg-slate-100 shadow min-h-[400px] flex flex-col justify-center items-center text-center">
+ <img src="jobs.png" alt="">
+     <h1 class="text-[25px] font-bold">No jobs available</h1>
+    <p>Check back soon for new job opportunities</p>
+    </div>
+
+</div>
+</section>
+
+        <section id="allCards" class="mt-7 space-y-3">
+
+<!-- card-1 -->
+
+            <div class="cards flex justify-between p-3 shadow mt-2 ">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="rejectBtnClass px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div class="deleteBtnClass" ><button><i class="fa-solid fa-trash"></i></button></div>
+            </div>
+
+<!-- card 2 -->
+<div class="cards flex justify-between p-3 shadow mt-2">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp 222</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="rejectBtnClass px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div class="deleteBtnClass"  ><button  ><i class="fa-solid fa-trash"></i></button></div>
+            </div>
+
+            
+<!-- card -3 -->
+
+          <div class="cards flex justify-between p-3 shadow mt-2">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="  px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div><button ><i class="fa-solid fa-trash"></i></button></div>
+            </div> 
+<!-- card-4 -->
+<div class="cards flex justify-between p-3 shadow mt-2">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="  px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div><button ><i class="fa-solid fa-trash"></i></button></div>
+            </div>
+           
+<!-- card-5 -->
+           <div class="cards flex justify-between p-3 shadow mt-2">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="  px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div><button ><i class="fa-solid fa-trash"></i></button></div>
+            </div>
+<!-- card-6 -->
+          <div class="cards flex justify-between p-3 shadow mt-2">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="  px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div><button ><i class="fa-solid fa-trash"></i></button></div>
+            </div>
+<!-- card-7 -->
+             <div class="cards flex justify-between p-3 shadow mt-2">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="  px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div><button ><i class="fa-solid fa-trash"></i></button></div>
+            </div>
+<!-- card-8 -->
+             <div class="cards flex justify-between p-3 shadow mt-2">
+                <div class="space-y-4">
+                    <p class="jobPlace"> Mobile First Corp</p>
+                    <p class="jobWork">React Native Developer</p>
+                    <p class="jobDetails">Remote
+                        •
+                        Full-time
+                        •
+                        $130,000 - $175,000</p>
+                    <div id="status" class="statas bg-blue-100 p-[10px] max-w-[110px] rounded-md ">Not Applied</div>
+                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
+                        modern web design trends.</p>
+                    <button id="interviewBtn"
+                        class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
+                    <button id="rejectBtn"
+                        class="  px-[32px] py-[5px] shadow rounded-md border cursor-pointer text-red-600 ">Rejected</button>
+
+                </div>
+                <div><button ><i class="fa-solid fa-trash"></i></button></div>
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+
+
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>
