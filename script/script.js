@@ -301,8 +301,7 @@ function pushObjectRej() {
 ${arr.statas === 'Interviewed' ? 'bg-green-50 text-black' : 
   arr.statas === 'Rejected' ? 'bg-red-50 text-black' : 
   'bg-blue-100'}">${arr.statas}</div>
-                    <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
-                        modern web design trends.</p>
+                    <p class="nodes">${arr.nodes}</p>
                     <button id="interviewBtn"
                         class="interviewBtnclass px-[32px] py-[5px] shadow rounded-md cursor-pointer border text-green-500 ">Interview</button>
                     <button id="rejectBtn"
