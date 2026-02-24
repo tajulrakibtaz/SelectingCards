@@ -54,7 +54,7 @@ function toggleStyle(id) {
     const selected = document.getElementById(id);
     currentStatus = id;
 
-    console.log(selected);
+   
     selected.classList.remove('bg-slate-200', 'text-blue-500');
     selected.classList.add('bg-blue-500', 'text-white');
 
@@ -65,7 +65,7 @@ function toggleStyle(id) {
         allcards.classList.add('hidden');
         getFiler.classList.remove('hidden');
         getFilerRej.classList.add('hidden');
-        
+
 
 
         if(interviewArr.length==0){
@@ -141,7 +141,7 @@ main.addEventListener('click', function (event) {
         parentNode.querySelector('.statas').innerText = 'Interviewed';
         if (!jobis) {
             interviewArr.push(cardInfo);
-            console.log(interviewArr);
+            
         }
 
 
@@ -155,7 +155,7 @@ main.addEventListener('click', function (event) {
 
     }
     else if (rejectBtnClass) {
-        console.log('Rejected clicked');
+       
 
         const parentNode = event.target.parentNode;
         //   style
@@ -164,8 +164,7 @@ main.addEventListener('click', function (event) {
         statasS.classList.add('bg-red-50');
         statasS.classList.add('text-black');
       
-    //   inter.classList.remove('border-l-4','border-green-500')
-    //  inter.classList.add('border-l-4','border-red-500');
+   
         // finish
         parentNode.querySelector('.statas').innerText = 'Rejected';
         const jobPlace = parentNode.querySelector('.jobPlace').innerText;
@@ -187,18 +186,18 @@ main.addEventListener('click', function (event) {
         parentNode.querySelector('.statas').innerText = 'Rejected';
         if (!jobisRej) {
             rejectArr.push(cardInfo);
-            console.log(rejectArr);
+           
         }
 
         interviewArr = interviewArr.filter(iteam => iteam.jobPlace != cardInfo.jobPlace);
        calculateCount();
 
-// If we are in Interview tab → refresh interview list
+
 if (currentStatus === "intmainBtn") {
     pushObject();
 }
 
-// If we are in Reject tab → refresh reject list
+
 if (currentStatus === "rejmainBtn") {
     pushObjectRej();
 }
@@ -213,19 +212,18 @@ if (currentStatus === "rejmainBtn") {
 
     const jobPlace = card.querySelector('.jobPlace').innerText;
 
-    // Remove from Interview Array
+    
     interviewArr = interviewArr.filter(item => item.jobPlace !== jobPlace);
 
-    // Remove from Reject Array
+   
     rejectArr = rejectArr.filter(item => item.jobPlace !== jobPlace);
 
-    // Remove from DOM (All Section)
     card.remove();
 
-    // Update counts
+  
     calculateCount();
 
-    // Refresh filtered sections if active
+   
     if (currentStatus === 'intmainBtn') {
         pushObject();
     }
@@ -320,7 +318,7 @@ ${arr.statas === 'Interviewed' ? 'bg-green-50 text-black' :
 }
 
 
-// working of delete btn 
+
 
 
 
