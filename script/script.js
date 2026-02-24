@@ -65,6 +65,7 @@ function toggleStyle(id) {
         allcards.classList.add('hidden');
         getFiler.classList.remove('hidden');
         getFilerRej.classList.add('hidden');
+        
 
 
         if(interviewArr.length==0){
@@ -258,7 +259,7 @@ function pushObject() {
                     <p class="jobWork">${arr.jobWork}</p>
                     <p class="jobDetails">${arr.jobDetails}</p>
                    <div id="statas" class="statas p-[10px] max-w-[110px] rounded-md 
-${arr.statas === 'Interviewed' ? 'bg-green-50 text-black' :
+${arr.statas === 'Interviewed' ? 'bg-green-50 text-black':
                 arr.statas === 'Rejected' ? 'bg-red-50 text-black' :
                     'bg-blue-100'}">${arr.statas}</div>
                     <p class="nodes">Create stunning web experiences for high-profile clients. Must have portfolio and experience with
